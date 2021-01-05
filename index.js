@@ -83,7 +83,7 @@ const generateId = () => {
 app.post('/api/persons', (request,response) => {
     const body = request.body
     const existingName = persons.find(person => person.name === body.name)
-    console.log(existingName)
+
     if(!body.name){
         return response.status(400).json({
             error: 'name missing'
@@ -105,7 +105,7 @@ app.post('/api/persons', (request,response) => {
     }
 
     persons = persons.concat(person)
-    response.json(person)
+    response.json(persons)
 })
 
 const PORT = process.env.PORT || 3001
